@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  # serviço do banco de dados postgresql
+  db:
+    # setando a imagem do postgre
+    image: postgres:13-alpine
+    # volume criado no campo volumes
+    volumes:
+      - db_python:/var/lib/posgresql/data
+    # variáveis de ambiente de conexão: nome do banco, usuário e senha
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    # porta padrão do postgre sendo exposta para ser possivel usar um sgbd grafico fora do container
+    ports:
+      - "5432:5432"
+  
+  # serviço da aplicação
+  bibliotk:
+    build:
+      # refenciação do ambiente externo onde está o dockerfile
+      context: .
+    # porta para acessar a aplicação via browser
+    ports:
+      - "8000:8000"
+    volumes:
+      # garante que toda alteração feita no vscode na pasta raiz do projeto seja refletida dentro do container
+      - ./bibliotk:/bibliotk
+    # primeiro aplica as mudanças com o migrate e após isso executa o django
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    # django tendo acesso as variável do banco de dados postgres
+    environment:
+      - name=value
+      - DB_HOST=db
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    #aplicação dependente do serviço db
+    depends_on:
+      - db
+
+volumes:
+  db_python:
