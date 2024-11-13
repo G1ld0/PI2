@@ -1,8 +1,21 @@
 {% extends "app/base.html" %}
 
 {% block content %}
-    {% for livro in livros %}
-        <h2>{{ livro.titulo }}</h2>
-        <div>{{ livro.conteudo_html|safe }}</div>
-    {% endfor %}
+    {% include 'app/upload_form.html' %}
+
+    {% if livros %}
+        {% for livro in livros %}
+            <h2>{{ livro.titulo }}</h2>
+            <div>{{ livro.conteudo_html|safe }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% if markdown %}
+        <div class="container py-5">
+            <h2 class="mb-4">Conteúdo Convertido para Markdown</h2>
+            <div class="markdown-content rounded bg-light p-3" style="border: 1px solid #ccc;">
+                {{ markdown | safe }}
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

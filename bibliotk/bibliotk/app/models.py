@@ -22,6 +22,8 @@ class Livro(models.Model):
     imagem_capa = models.ImageField(upload_to='capas/', blank=True, null=True)  # Imagem da capa do livro (opcional)
     idioma = models.CharField(max_length=30)  # Idioma do livro
     conteudo = models.TextField()  # Conteúdo do livro (texto completo)
+    arquivo_pdf = models.FileField(upload_to='livros_pdfs/', blank=True, null=True)  # opcionalmente, você pode permitir arquivos em branco
+
 
     def __str__(self):
         """Devolve uma representação em string do modelo"""
