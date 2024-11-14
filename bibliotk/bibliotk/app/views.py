@@ -23,7 +23,7 @@ def pdf_to_markdown_view(request):
             return render(request, 'app/upload_form.html', {'error': 'Nenhum arquivo enviado.'})
     else:
         return render(request, 'app/upload_form.html')
-    
+  
 def upload_livro_view(request):
     if request.method == 'POST':
         novo_livro = Livro()
@@ -41,6 +41,6 @@ def upload_livro_view(request):
             novo_livro.conteudo = converter_para_markdown(texto_extraido)
         
         novo_livro.save()
-        return redirect('alguma_url_apos_salvar')  # Substitua com o nome da URL para redirecionar
+        return redirect('index')  # Substitua com o nome da URL para redirecionar
     else:
         return render(request, 'app/upload.html')    
