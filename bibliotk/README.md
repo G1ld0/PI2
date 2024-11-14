@@ -1,4 +1,4 @@
-#LEIA-ME - orientações gerais para desenvolvimento
+# LEIA-ME - orientações gerais para desenvolvimento
 
 ## Diretrizes para fazer a parte de leitura do PDF e conversão em Markdown
 
