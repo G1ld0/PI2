@@ -26,4 +26,6 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/catalogo/')),
     path('livros/', views.ListaLivrosView.as_view(), name='livros'),
     path('cadastrolivros/', views.cadastrolivros, name='cadastrolivros'),
+    path('livros/<int:livro_id>/', views.visualizar_livro, name='visualizar_livro'),
+
 ]
