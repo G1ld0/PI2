@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Bibliotk Página Inicial</h1>
+  <p>
+    Bem-vindos à Bibliotk, um aplicativo desenvolvido para o curso de TI da UNIVESP, desenvolvido por
+    <em>Grupo Bibliotk</em>!
+  </p>
+  <h2>A biblioteca contém cadastrados:</h2>
+  <ul>
+    <li><strong>Livros:</strong> {{ num_livros }}</li>
+    <li><strong>Autores:</strong> {{ num_autores }}</li>
+  </ul>
+{% endblock %}

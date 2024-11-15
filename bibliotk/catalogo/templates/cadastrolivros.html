@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cadastro de livros</h1>
+  <p>
+    Bem-vindos à Bibliotk, um aplicativo desenvolvido para o curso de TI da UNIVESP, desenvolvido por
+    <em>Grupo Bibliotk</em>!
+  </p>
+  <h2>Por favor, preencha os campos abaixo, e faça upload de um livro no formato PDF com OCR</h2>
+  <div class="container py-5">
+    <h2 class="mb-4">Cadastro de Novo Livro</h2>
+    <form action="{% url 'cadastrolivros' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="titulo" placeholder="Título"><br>
+        <input type="number" name="autor_id" placeholder="ID do Autor"><br>
+        <input type="date" name="data_publicacao" placeholder="Data de Publicação"><br>
+        <input type="text" name="isbn" placeholder="ISBN"><br>
+        <input type="number" name="numero_paginas" placeholder="Número de Páginas (total do PDF)"><br>
+        <input type="text" name="idioma" placeholder="Idioma"><br>
+        <input type="file" name="arquivo_pdf"><br>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}
