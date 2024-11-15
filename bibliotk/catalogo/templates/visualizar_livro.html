@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ livro.titulo }}</h1>
+    <p><strong>ID do Autor: </strong>{{ livro.autor_id }}</p>
+    <p><strong>Data de Publicação: </strong>{{ livro.data_publicacao }}</p>
+    <p><strong>ISBN: </strong>{{ livro.isbn }}</p>
+    <p><strong>Número de Páginas: </strong>{{ livro.numero_paginas }}</p>
+    <p><strong>Idioma: </strong>{{ livro.idioma }}</p>
+
+    <h3>Conteúdo do Livro:</h3>
+    <div class="book-content">
+        {{ livro.conteudo_markdown|safe }}
+    </div>
+</div>
+{% endblock %}
