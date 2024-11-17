@@ -19,7 +19,7 @@ class Livro(models.Model):
     data_publicacao = models.DateField()  # Data de publicação do livro
     isbn = models.CharField(max_length=13, unique=True)  # ISBN do livro (deve ser único)
     numero_paginas = models.PositiveIntegerField()  # Número de páginas do livro
-    imagem_capa = models.ImageField(upload_to='capas/', blank=True, null=True)  # Imagem da capa do livro (opcional)
+    imagem_capa = models.ImageField(upload_to='../media/capas', blank=True, null=True)  # Imagem da capa do livro (opcional)
     idioma = models.CharField(max_length=30)  # Idioma do livro
     conteudo = models.TextField()  # Conteúdo do livro (texto completo)
 

@@ -1,0 +1,51 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/catalogo.css' %}">
+    <script src="{% static 'app/js/catalogo.js' %}" defer></script>
+</head>
+<body>
+    <div class="catalogo-container">
+        <h1>Catálogo de Livros</h1>
+        
+        <!-- Barra de pesquisa -->
+        <input type="text" id="search" placeholder="Buscar por título..." onkeyup="filterBooks()">
+        
+        <!-- Seletor de classificação -->
+        <select id="sort" onchange="sortBooks()">
+            <option value="default">Classificar por...</option>
+            <option value="title">Titulo</option>
+            <option value="author">Autor</option>
+            <option value="date">Data de Publicação</option>
+        </select>
+        
+        <div class="grid-container" id="book-grid">
+            {% for livro in livros %}
+                <div class="grid-item" data-author="{{ livro.autor.nome }}" data-date="{{ livro.data_publicacao }}">
+                    {% if livro.imagem_capa %}
+                        <img src="{{ livro.imagem_capa.url }}" alt="{{ livro.titulo }} - Capa" class="capa-livro">
+                    {% else %}
+                        <div class="capa-livro placeholder"></div>
+                    {% endif %}
+                    <h2><a href="{% url 'meuslivros' %}?id={{ livro.id }}">{{ livro.titulo }}</a></h2>
+                    <p>Autor: {{ livro.autor.nome }}</p>
+                    <p>Data de Publicação: {{ livro.data_publicacao }}</p>
+                    <p>ISBN: {{ livro.isbn }}</p>
+                    <p>Número de Páginas: {{ livro.numero_paginas }}</p>
+                </div>
+            {% empty %}
+                <div class="grid-item">
+                    <p>Ops! Desculpe, não há livros no catálogo no momento</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

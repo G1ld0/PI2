@@ -1,0 +1,28 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/meuslivros.css' %}">
+</head>
+<body>
+    <div class="controls">
+        <button onclick="changeFontSize(2)" title="Aumentar Fonte"><i class="fas fa-plus"></i></button>
+        <button onclick="changeFontSize(-2)" title="Diminuir Fonte"><i class="fas fa-minus"></i></button>
+        <button onclick="changeBackgroundColor()" title="Mudar Cor de Fundo"><i class="fas fa-paint-brush"></i></button>
+        <button onclick="togglePageBackground()" title="Mudar Fundo da Página"><i class="fas fa-adjust"></i></button>
+        <input type="color" id="textColorPicker" onchange="changeTextColor(this.value)" title="Escolha a cor do texto">
+        <button onclick="markText()" title="Marcar Texto"><i class="fas fa-highlighter"></i></button>
+        <button onclick="undoMark()" title="Desfazer Marcação"><i class="fas fa-undo"></i></button>
+        <button onclick="downloadText()" title="Download do Texto"><i class="fas fa-download"></i></button>
+    </div>
+    {% for livro in livros %}
+        <h2>{{ livro.titulo }}</h2>
+        <div id="book" class="book">
+            <p>
+                {{ livro.conteudo_html|safe }}
+            </p>
+        </div>
+    {% endfor %}
+    <script src="{% static 'app/js/meuslivros.js' %}"></script>
+</body>
+{% endblock %}

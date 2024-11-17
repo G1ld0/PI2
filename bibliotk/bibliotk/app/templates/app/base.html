@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/base.css' %}">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="custom-container">
-            <a class="navbar-brand logo" href="{% url 'index' %}">
+            <a class="navbar-brand logo" href="{% url 'meuslivros' %}">
                 <i class="fas fa-book-reader logo-icon"></i>
                 Bibliotk
             </a>
@@ -29,10 +29,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/catalogo">Catálogo</a>
+                        <a class="nav-link" href="/meuslivros">Meus Livros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/meus-livros">Meus Livros</a>
+                        <a class="nav-link" href="/catalogo">Catálogo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/sobre">Sobre</a>
@@ -42,7 +42,7 @@
         </div>
     </nav>
 
-    <div style="margin-top: 80px;"></div>
+    <div style="margin-top: 160px;"></div>
 
     <main class="custom-container">
         {% block content %}
@@ -64,6 +64,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'app/js/script.js' %}"></script>
+    <script src="{% static 'app/js/base.js' %}"></script>
 </body>
 </html>

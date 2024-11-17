@@ -1,8 +1,0 @@
-{% extends "app/base.html" %}
-
-{% block content %}
-    {% for livro in livros %}
-        <h2>{{ livro.titulo }}</h2>
-        <div>{{ livro.conteudo_html|safe }}</div>
-    {% endfor %}
-{% endblock %}

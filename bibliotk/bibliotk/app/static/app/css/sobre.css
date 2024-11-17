@@ -1,0 +1,74 @@
+/* sobre.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.sobre-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-header {
+    margin-bottom: 20px;
+}
+
+.sobre-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sobre-description h2,
+.sobre-team h2 {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.sobre-team-list {
+    list-style-type: disc; /* Define o estilo da lista como bolinhas */
+    padding-left: 20px; /* Adiciona um espaço à esquerda para os itens da lista */
+}
+
+.sobre-team-list li {
+    margin-bottom: 5px; /* Adiciona um espaço entre os itens da lista */
+    color: #333; /* Cor do texto dos integrantes */
+}
+
+.sobre-error {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sobre-error h4 {
+    font-size: 1.2em;
+    color: #e74c3c;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .sobre-title {
+        font-size: 2em;
+    }
+    
+    .sobre-description h2,
+    .sobre-team h2 {
+        font-size: 1.3em;
+    }
+    
+    .sobre-error h4 {
+        font-size: 1em;
+    }
+    
+    .sobre-container {
+        padding: 15px;
+    }
+}

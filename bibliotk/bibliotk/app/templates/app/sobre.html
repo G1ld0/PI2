@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/sobre.css' %}">
+
+{% block content %}
+    <div class="sobre-container">
+        {% if sobre %}
+        <article class="sobre-content">
+            <header class="sobre-header">
+                <h1 class="sobre-title">{{ sobre.titulo }}</h1>
+            </header>
+            <section class="sobre-description">
+                <h2>Projeto Integrador Unisvesp - Eixo Computação</h2>
+                <p>{{ sobre.conteudo }}</p>
+            </section>
+            <section class="sobre-team">
+                <h2>Integrantes do Projeto</h2>
+                <ul class="sobre-team-list">
+                    <li>LUZ, Claudio dos Santos da</li>
+                    <li>SILVA, Felipe Roberto da</li>
+                    <li>MOREIRA JUNIOR, Fernando da Costa</li>
+                    <li>DIAS FILHO, Gildo Ferreira</li>
+                    <li>MUTTON, João Ailton</li>
+                    <li>SILVA JUNIOR, Peterson Pereira da</li>
+                    <li>SEBINELLI, Victor Gobbi</li>
+                    <li>SALVATICO, Wesley Augusto Salvi</li>
+                </ul>
+            </section>
+        </article>
+        {% else %}
+        <div class="sobre-error">
+            <h4>
+                Ops! Desculpe, não há livros no catálogo no momento
+            </h4>
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}
