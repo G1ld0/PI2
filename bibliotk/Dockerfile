@@ -41,4 +41,4 @@ ENV PATH="/py/bin:$PATH"
 # setando usuário que não pode criar pastas e tem senha desabilitada
 USER django-user
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "bibliotk.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "bibliotk/bibliotk.wsgi:application"]
