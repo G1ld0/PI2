@@ -1,6 +1,10 @@
 # Versão do Python leve
 FROM python:3.9-alpine3.13
 
+# Setando variáveis de ambiente para evitar a criação de arquivos .pyc
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 # copiando os requirements para dentro de um diretório temporário no container
 COPY ./requirements.txt /tmp/requirements.txt
 # copiando a raiz do nosso projeto e setando como raiz dentro do container
@@ -37,4 +41,4 @@ ENV PATH="/py/bin:$PATH"
 # setando usuário que não pode criar pastas e tem senha desabilitada
 USER django-user
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "bibliotk.wsgi:application"]
