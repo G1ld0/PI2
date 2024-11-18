@@ -33,7 +33,7 @@
                     {% else %}
                         <div class="capa-livro placeholder"></div>
                     {% endif %}
-                    <h2><a href="{% url 'meuslivros' %}?id={{ livro.id }}">{{ livro.titulo }}</a></h2>
+                    <h2><a href="{% url 'meuslivros' %}?id={{ livro.id }}" class="link-titulo">{{ livro.titulo }}</a></h2>
                     <p>Autor: {{ livro.autor.nome }}</p>
                     <p>Data de Publicação: {{ livro.data_publicacao }}</p>
                     <p>ISBN: {{ livro.isbn }}</p>

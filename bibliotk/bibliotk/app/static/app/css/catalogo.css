@@ -53,6 +53,15 @@ select {
     border-radius: 4px; /* Mantém a borda arredondada */
 }
 
+.link-titulo {
+    color: var(--primary-color);
+    text-decoration: none; /* Remove o sublinhado padrão */
+}
+
+.link-titulo:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     .grid-container {
